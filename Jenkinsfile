@@ -74,7 +74,13 @@ pipeline {
                 // bat """
                 // minikube kubectl -- apply -f deployment.yaml
                 // """
+                // bat """
+                // kubectl apply -f deployment.yaml
+                // """
+
+                withCredentials([file(credentialsId: 'KUBECONFIG', variable: 'KCFG')]) {
                 bat """
+                set KUBECONFIG=%KCFG%
                 kubectl apply -f deployment.yaml
                 """
             }
