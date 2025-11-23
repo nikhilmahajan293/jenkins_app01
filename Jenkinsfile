@@ -83,6 +83,7 @@ pipeline {
                 set KUBECONFIG=%KCFG%
                 kubectl apply -f deployment.yaml
                 """
+                }
             }
         }
     }
