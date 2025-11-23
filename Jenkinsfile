@@ -76,5 +76,18 @@ pipeline {
                 """
             }
         }
+
+
+        // update the deployment
+        stage('updating deployment') {
+            steps {
+                // bat """
+                // minikube kubectl -- apply -f deployment.yaml
+                // """
+                bat """
+                kubectl apply -f deployment.yaml
+                """
+            }
+        }
     }
 }
