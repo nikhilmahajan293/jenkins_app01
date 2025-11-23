@@ -67,16 +67,6 @@ pipeline {
                 """
             }
         }
-        
-        // update the docker service
-        stage('updating docker service') {
-            steps {
-                bat """
-                docker service update --force --image ${DOCKER_IMAGE_NAME} myapp
-                """
-            }
-        }
-
 
         // update the deployment
         stage('updating deployment') {
